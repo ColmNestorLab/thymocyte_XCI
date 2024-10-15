@@ -1,5 +1,5 @@
 # A landscape of X-inactivation during human T-cell development
-Björn Gylemo<sup>1</sup>*, Maike Bensberg<sup>1</sup>*, Viktoria Hennings<sup>2,3</sup>*, Christina Lundqvist<sup>2</sup>*, Alessandro Camponeschi<sup>2</sup>, Dóra Goldmann<sup>1</sup>, Huan Zhang<sup>1</sup>, Aida Selimović<sup>1</sup>, Antonio Lentini<sup>1</sup>†, Olov Ekwall<sup>2,3</sup>†, Colm E. Nestor<sup>1</sup>†
+*Björn Gylemo<sup>1</sup>\*, Maike Bensberg<sup>1</sup>\*, Viktoria Hennings<sup>2,3</sup>\*, Christina Lundqvist<sup>2</sup>\*, Alessandro Camponeschi<sup>2</sup>, Dóra Goldmann<sup>1</sup>, Huan Zhang<sup>1</sup>, Aida Selimović<sup>1</sup>, Antonio Lentini<sup>1</sup>†, Olov Ekwall<sup>2,3</sup>†, Colm E. Nestor<sup>1</sup>†*
 
 
 *These authors contributed equally: Björn Gylemo, Maike Bensberg, Viktoria Hennings, Christina Lundqvist 
