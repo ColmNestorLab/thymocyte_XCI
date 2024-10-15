@@ -12,7 +12,7 @@ source("plot_parameters.R")
 
 ### PLOT PCA ###
 # read in data
-ss2_df <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 11, skip = 1, col_types = c("text", "numeric", "text", "numeric", "numeric", "numeric", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "logical")))[contig == "chrX" & pass_all_filters == T & !is.na(gene)]
+ss2_df <- data.table(read_excel("Supplementary Data.xlsx", sheet = 9, skip = 1, col_types = c("text", "numeric", "text", "numeric", "numeric", "numeric", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "logical")))[contig == "chrX" & pass_all_filters == T & !is.na(gene)]
 
 # make gene separate on position, as to keep them separate.
 ss2_df$gene_pos <- paste0(ss2_df$gene, "_", ss2_df$position)
@@ -93,8 +93,8 @@ write.table(Suppl_Fig_6b$data[,1:5], file = "06_source_data/Suppl_Fig_6b.tsv", q
 # cells clustered by XIST ASE.
 cells_classified_with_XIST <- Suppl_Fig_6b$data$cell_id
 
-# Read in classification/clustering (file is created in 'cluster_cells_generate_Supplementary_Table_10.R')
-final_classification <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 12, skip = 1, col_types = c("text", "text", "text")))
+# Read in classification/clustering.
+final_classification <- data.table(read_excel("Supplementary Data.xlsx", sheet = 10, skip = 1, col_types = c("text", "text", "text")))
 
 # Merge the classification with the ss2 dataframe
 ss2_df_fin <- merge(ss2_df[ss2_df$pass_all_filters == T,], final_classification, by = "cell_id")

@@ -74,7 +74,7 @@ melt_split_anno_short_tss500_short_annotated <- unique(merge(dplyr::select(annot
 
 
 # get all inactive F3 genes
-df_ase <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 10, skip = 1, col_types = c("text", "numeric", "text", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "logical", "logical")))
+df_ase <- data.table(read_excel("Supplementary Data.xlsx", sheet = 8, skip = 1, col_types = c("text", "numeric", "text", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "logical", "logical")))
 
 df_ase <- subset(df_ase, contig == "chrX" & sample == "F3" & keep == T)
 

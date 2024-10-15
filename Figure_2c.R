@@ -7,15 +7,15 @@ library(ggsci)
 source("plot_parameters.R")
 
 ## Read in sleuth output tables
-thymocytes_across <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 5, skip = 1))
-thymocytes_split <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 6, skip = 1))
+thymocytes_across <- data.table(read_excel("Supplementary Data.xlsx", sheet = 4, skip = 1))
+thymocytes_split <- data.table(read_excel("Supplementary Data.xlsx", sheet = 5, skip = 1))
 
 # make sure log2FC is numeric
 thymocytes_across$log2FC <- as.numeric(thymocytes_across$log2FC)
 thymocytes_split$log2FC <- as.numeric(thymocytes_split$log2FC)
 
 # read in TPM data
-TPMz <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 3, skip = 1, col_types = c("text",rep(paste0("numeric"), 46))))
+TPMz <- data.table(read_excel("Supplementary Data.xlsx", sheet = 2, skip = 1, col_types = c("text",rep(paste0("numeric"), 46))))
 
 # calc means and keep only genes with mean TPM > 1
 TPMz$meanz <- rowMeans(TPMz[,-c("gene")])

@@ -6,7 +6,7 @@ library(tidyverse)
 source("plot_parameters.R")
 
 # read in thymocyte TPM matrix
-df_tpmz <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 3, skip = 1))
+df_tpmz <- data.table(read_excel("Supplementary Data.xlsx", sheet = 2, skip = 1))
 
 # select genes to plot
 goiz <- c("MYCN", "LMO2", "LYL1", "RAG2", "RORC", "TCF12", "ZBTB7B", "GATA3", "RUNX3")

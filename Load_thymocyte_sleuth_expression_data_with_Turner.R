@@ -3,7 +3,7 @@ source("plot_parameters.R")
 #Import metadata
 library(data.table)
 message("loading metadata")
-meta_thymo_transition <- fread("96_metadata/thymocytes_RNAsequencing_revisions_meta.csv")
+meta_thymo_transition <- fread("96_metadata/thymocytes_RNAsequencing_meta.csv")
 meta_thymo_transition <- meta_thymo_transition[order(meta_thymo_transition$Sample),]
 
 #Load sleuth object for differential expression

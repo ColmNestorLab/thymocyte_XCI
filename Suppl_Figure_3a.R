@@ -17,7 +17,7 @@ library(readxl)
 
 # Filter out genes not expressed
 # Load data
-TPM <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 3, skip = 1, col_types = c("text",rep(paste0("numeric"), 46))))
+TPM <- data.table(read_excel("Supplementary Data.xlsx", sheet = 2, skip = 1, col_types = c("text",rep(paste0("numeric"), 46))))
 tpm_melt <- melt(TPM)
 tpm_melt <- tpm_melt %>% separate(variable, into = c("sample", "cell", NA, NA), sep = "_")
 
@@ -27,7 +27,7 @@ tpm_filter <- subset(tpm_filter, meanz >= 1)
 
 
 ## Read in significance data
-res_thymo_genes <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 5, skip = 1, col_types = c("text", "text", "numeric", "numeric", "numeric")))
+res_thymo_genes <- data.table(read_excel("Supplementary Data.xlsx", sheet = 4, skip = 1, col_types = c("text", "text", "numeric", "numeric", "numeric")))
 
 # counts
 nrow(subset(unique(dplyr::select(res_thymo_genes, gene, pval)), pval < 0.00001))

@@ -8,8 +8,8 @@ library(RColorBrewer)
 message("loading sleuth object")
 source("Load_thymocyte_sleuth_expression_data_with_Turner.R")
 
-# read in results from normal thymocyte development analysis (see Suppl_Figure_1D_HM_and_Cluster.R)
-res_lrt <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 4, skip = 1, col_types = c("text", "numeric", "numeric", "numeric", "numeric")))
+# read in sleuth results from normal thymocyte development analysis.
+res_lrt <- data.table(read_excel("Supplementary Data.xlsx", sheet = 3, skip = 1, col_types = c("text", "numeric", "numeric", "numeric", "numeric")))
 
 # Filter out genes not expressed in any subtype
 tpm_filter <- txi_thymo$abundance[apply(txi_thymo$abundance,1,function(x) any(tapply(x,meta_thymo_transition$Celltype,function(y) mean(y>=1) )==1) ),]

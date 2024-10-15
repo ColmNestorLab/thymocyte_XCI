@@ -65,7 +65,7 @@ removez <- removez[removez$meanz > 1,] %>% dplyr::count() %>% subset(n >= 1 )
 df_tpm_filt_anno <- df_tpm_filt_anno[df_tpm_filt_anno$gene %in% removez$gene,]
 
 # get sex-biased escape genes
-lrt_res <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 5, skip = 1, col_types = c("text", "text", "numeric", "numeric", "numeric")))
+lrt_res <- data.table(read_excel("Supplementary Data.xlsx", sheet = 3, skip = 1, col_types = c("text", "text", "numeric", "numeric", "numeric")))
 
 # keep only X-linked escape genes, which are significant and not XIST.
 lrt_res <- lrt_res[lrt_res$contig == "chrX" & (lrt_res$gene %in% c(as.character(unique(df_tpm_filt_anno[df_tpm_filt_anno$category == "Escape",]$gene)), "PUDP", "SEPT6")) & lrt_res$qval < 0.01 & lrt_res$gene != "XIST"]

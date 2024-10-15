@@ -23,7 +23,7 @@ metadata <- fread("96_metadata/metadata_RNAseq_full_for_tissues.tsv")
 ##############################################################
 ######## Pseudoalignment (Salmon -> Wasabi -> Sleuth) ########
 ##############################################################
-df_pseduo <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 9, skip = 1, col_types = c("text", "numeric", "numeric", "text", "numeric", "numeric", "numeric", "text")))
+df_pseduo <- data.table(read_excel("Supplementary Data.xlsx", sheet = 7, skip = 1, col_types = c("text", "numeric", "numeric", "text", "numeric", "numeric", "numeric", "text")))
 
 # remove NAs and headers left while merging
 df_pseduo <- df_pseduo[!is.na(df_pseduo$log2FC),]
@@ -35,7 +35,7 @@ df_pseduo_short <- dplyr::select(df_pseduo, target_id, log2FC, tissue_id)
 #####################################################################
 ######## reference-alignment (STAR -> featureCount -> edgeR) ########
 #####################################################################
-df_reference <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 8, skip = 1, col_types = c("text", "numeric", "numeric", "text", "numeric", "numeric", "text")))
+df_reference <- data.table(read_excel("Supplementary Data.xlsx", sheet = 6, skip = 1, col_types = c("text", "numeric", "numeric", "text", "numeric", "numeric", "text")))
 
 # make short for merging (i.e. remove unwanted columns) and melt.
 df_reference_short <- melt(dplyr::select(df_reference, -start, -pval, -end, -seqnames))
@@ -112,7 +112,7 @@ df_smash_anno_chrx[df_smash_anno_chrx$tissue_id == "Whole_blood",]$tissue_id <- 
 ################################################################
 
 # filter metadata
-TPMz <- melt(fread("02_tidy_data/tissues_TPM_matrix.tsv"))
+TPMz <- melt(fread("02_tidy_data/GTEX/method_comparison/tissues_TPM_matrix.tsv"))
 metadata_tpm <- dplyr::select(metadata, -2)
 
 # change "." to "-".

@@ -10,7 +10,7 @@ library(readxl)
 source("plot_parameters.R")
 
 # Read in 
-df_reference <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 8, skip = 1, col_types = c("text", "numeric", "numeric", "text", "numeric", "numeric", "text")))
+df_reference <- data.table(read_excel("Supplementary Data.xlsx", sheet = 6, skip = 1, col_types = c("text", "numeric", "numeric", "text", "numeric", "numeric", "text")))
 
 # make short for merging (i.e. remove unwanted columns) and melt.
 df_reference_short <- melt(dplyr::select(df_reference, -start, -end, -seqnames, -pval))[,c("gene", "tissue_id", "value")]
@@ -29,8 +29,6 @@ keep <- c(gsub(sort(unique(df_reference_short_filt$tissue_id)), pattern = "logFC
 
 # read in metadata
 metadata <- fread("96_metadata/METADATA_RNAseq_affymetrix_matched.tsv")
-
-unique(metadata$V1)
 
 ################################################################
 ######## reference-alignment (affymetrix, preprocessed) ########

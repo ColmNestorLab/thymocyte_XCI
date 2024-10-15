@@ -12,8 +12,8 @@ source("plot_parameters.R")
 point_size <- 1.5
 
 ####### Read in data ########
-ase.f3_unfilt <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 10, skip = 1, col_types = c("text", "numeric", "text", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "logical", "logical")))
- 
+ase.f3_unfilt <- data.table(read_excel("Supplementary Data.xlsx", sheet = 8, skip = 1, col_types = c("text", "numeric", "text", "text", "text", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "logical", "logical")))
+
 # remove NA genes
 ase.f3_unfilt_with_chrx_info <- ase.f3_unfilt[!is.na(ase.f3_unfilt$gene)]
 

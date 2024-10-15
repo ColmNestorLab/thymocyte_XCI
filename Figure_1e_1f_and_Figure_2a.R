@@ -14,15 +14,15 @@ library(readxl)
 source("plot_parameters.R")
 
 ## Read in sleuth output tables
-df_sleuth_across <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 5, skip = 1))
-df_sleuth_split <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 6, skip = 1))
+df_sleuth_across <- data.table(read_excel("Supplementary Data.xlsx", sheet = 4, skip = 1))
+df_sleuth_split <- data.table(read_excel("Supplementary Data.xlsx", sheet = 5, skip = 1))
 
 # make numeric
 df_sleuth_across$log2FC <- as.numeric(df_sleuth_across$log2FC)
 df_sleuth_split$log2FC <- as.numeric(df_sleuth_split$log2FC)
 
 # read in TPM data
-raw_tpm <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 3, skip = 1, col_types = c("text",rep(paste0("numeric"), 46))))
+raw_tpm <- data.table(read_excel("Supplementary Data.xlsx", sheet = 2, skip = 1, col_types = c("text",rep(paste0("numeric"), 46))))
 
 #melt
 melt_raw_tpm <- melt(raw_tpm, id.vars = "gene")
