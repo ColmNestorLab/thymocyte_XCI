@@ -10,7 +10,7 @@ library(cluster)
 tpm_filter <- txi_thymo_transition$abundance[apply(txi_thymo_transition$abundance,1,function(x) any(tapply(x,meta_thymo_transition$Celltype,function(y) mean(y>=1) )==1) ),]
 
 # get p-values
-res_lrt <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 4, skip = 1, col_types = c("text", "numeric", "numeric", "numeric", "numeric")))
+res_lrt <- data.table(read_excel("Supplementary Data.xlsx", sheet = 3, skip = 1, col_types = c("text", "numeric", "numeric", "numeric", "numeric")))
 
 # Calculate Z-scores
 df_z <- t(apply(tpm_filter[row.names(tpm_filter) %in% res_lrt$target_id,],1,function(x) (x-mean(x))/sd(x) ))

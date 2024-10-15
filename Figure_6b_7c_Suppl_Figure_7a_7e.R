@@ -263,7 +263,7 @@ probes_methylation <- probes_methylation[!(probes_methylation$name2 == "CD8A" & 
 melt_df_beta_gois <- merge(x=melt_df_beta, y=unique(probes_methylation[,-1]), by = c("probeID"))
 
 # read in thymocyte TPMs, keep only genes of interest (gois).
-kek <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 3, skip = 1, col_types = c("text",rep(paste0("numeric"), 46))))
+kek <- data.table(read_excel("Supplementary Data.xlsx", sheet = 2, skip = 1, col_types = c("text",rep(paste0("numeric"), 46))))
 kek_filt <- melt(kek[kek$gene %in% gois,])
 # Split variable
 kek_filt <- kek_filt %>% tidyr::separate(variable, into = c("sample", "cell", NA, NA), sep = "_")

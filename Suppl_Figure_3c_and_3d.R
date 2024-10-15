@@ -51,10 +51,10 @@ df_TPM_tissues_anno_meanz <- df_TPM_tissues_anno %>% dplyr::group_by(tissue_id, 
 
 
 # read in thymoycte sleuth output
-thymocytes_across <- data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 5, skip = 1, col_types = c("text","text","numeric","numeric","numeric")))
+thymocytes_across <- data.table(read_excel("Supplementary Data.xlsx", sheet = 4, skip = 1, col_types = c("text","text","numeric","numeric","numeric")))
 
 # read in thymocyte TPMs
-tpmz_thymo <- melt(data.table(read_excel("02_tidy_data/Suppl_tables/Supplementary Tables.xlsx", sheet = 3, skip = 1, col_types = c("text",rep(paste0("numeric"), 46)))))
+tpmz_thymo <- melt(data.table(read_excel("Supplementary Data.xlsx", sheet = 2, skip = 1, col_types = c("text",rep(paste0("numeric"), 46)))))
 
 # get mean expression and add tissue_id
 tpmz_thymo_meanz <- tpmz_thymo %>% dplyr::group_by(gene) %>% dplyr::summarise(meanz = mean(value))
